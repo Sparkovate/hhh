@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranjha Heights</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 100vh;
+            background-color: #004080;
+            display: flex;
+            flex-direction: column;
+            padding-top: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            text-align: center;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        nav a:hover {
+            background-color: #005bb5;
+            transform: translateX(10px);
+        }
+        .slider {
+            position: relative;
+            max-width: 100%;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-left: 220px;
+        }
+        .slides {
+            display: flex;
+            width: 300%;
+            animation: slide 10s infinite;
+        }
+        .slides img {
+            width: 100%;
+        }
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            33% { transform: translateX(-100%); }
+            66% { transform: translateX(-200%); }
+        }
+        .content {
+            margin-left: 220px;
+            padding: 20px;
+            text-align: center;
+        }
+        .button {
+            background-color: #004080;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #005bb5;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="Ranjha Heights service.html">Services</a>
+        <a href="Ranjha Heights about.html">About</a>
+        <a href="Ranjha Heights contact.html">Contact</a>
+    </nav>
+    <div class="slider">
+        <div class="slides">
+            <img src="Ranjha Heights view.jpg" alt="View of Ranjha Heights" height="300px" width="300px">
+            <img src="Ranjha Heights shops.jpg" alt="Shops in Ranjha Heights" height="300px" width="300px">
+            <img src="Ranjha Heights hostels.jpg" alt="Rooms and Hostels" height="300px" width="300px">
+        </div>
+    </div>
+    <div class="content">
+        <p>Welcome to Ranjha Heights, where luxury meets convenience. Explore our rooms, shops, and facilities today!</p>
+        <button class="button">Learn More</button>
+    </div>
+</body>
+</html>

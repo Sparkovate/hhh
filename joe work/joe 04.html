@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joe Projects Shop</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="app.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        #products {
+            margin-bottom: 2rem;
+        }
+
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .product {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 1rem;
+        }
+
+        .product h3 {
+            margin: 0.5rem 0;
+        }
+
+        .add-to-cart {
+            background: #28a745;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .add-to-cart:hover {
+            background: #218838;
+        }
+
+        #cart {
+            border-top: 2px solid #ddd;
+            padding-top: 2rem;
+        }
+
+        .cart-items {
+            margin-bottom: 1rem;
+        }
+
+        #checkout {
+            background: #007bff;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #checkout:hover {
+            background: #0056b3;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const products = [
+                { id: 1, name: 'Website Template 1', price: 10 },
+                { id: 2, name: 'Website Template 2', price: 10 },
+                { id: 3, name: 'Website Template 3', price: 10 },
+                { id: 4, name: 'Website Template 4', price: 10 },
+                { id: 5, name: 'Website Template 5', price: 10 },
+                { id: 6, name: 'Website Template 6', price: 10 },
+                { id: 7, name: 'Website Template 7', price: 10 },
+                { id: 8, name: 'Website Template 8', price: 10 },
+            ];
+
+            const cart = [];
+
+            const productList = document.querySelector('.product-list');
+            const cartItems = document.querySelector('.cart-items');
+            const totalDisplay = document.getElementById('total');
+
+            productList.addEventListener('click', (e) => {
+                if (e.target.classList.contains('add-to-cart')) {
+                    const productId = e.target.parentElement.getAttribute('data-id');
+                    const product = products.find(p => p.id == productId);
+                    cart.push(product);
+                    updateCart();
+                }
+            });
+
+            function updateCart() {
+                cartItems.innerHTML = '';
+                let total = 0;
+                cart.forEach((item, index) => {
+                    const cartItem = document.createElement('div');
+                    cartItem.textContent = ${item.name} - $${item.price};
+                    cartItems.appendChild(cartItem);
+                    total += item.price;
+                });
+                if (cart.length === 0) {
+                    cartItems.innerHTML = '<p>Your cart is empty.</p>';
+                }
+                totalDisplay.textContent = total;
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Joe Projects</h1>
+        <nav>
+            <a href="#products">Products</a>
+            <a href="#cart">Cart</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="products">
+            <h2>Products</h2>
+            <div class="product-list">
+                <!-- Product template -->
+                <div class="product" data-id="1">
+                    <img src="images/website1.jpg" alt="Website Template 1">
+                    <h3>Website Template 1</h3>
+                    <p>$10</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product" data-id="2">
+                    <img src="images/website2.jpg" alt="Website Template 2">
+                    <h3>Website Template 2</h3>
+                    <p>$10</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product" data-id="3">
+                    <img src="images/website3.jpg" alt="Website Template 3">
+                    <h3>Website Template 3</h3>
+                    <p>$10</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product" data-id="4">
+                    <img src="images/website4.jpg" alt="Website Template 4">
+                    <h3>Website Template 4</h3>
+                    <p>$10</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product" data-id="5">
+                    <img src="images/website5.jpg" alt="Website Template 5">
+                    <h3>Website Template 5</h3>
+                    <p>$10</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product" data-id="6">
+                    <img src="images/website6.jpg" alt="Website Template 6">
+                    <h3>Website Template 6</h3>
+                    <p>$10</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product" data-id="7">
+                    <img src="images/website7.jpg" alt="Website Template 7">
+                    <h3>Website Template 7</h3>
+                    <p>$10</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product" data-id="8">
+                    <img src="images/website8.jpg" alt="Website Template 8">
+                    <h3>Website Template 8</h3>
+                    <p>$10</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="cart">
+            <h2>Your Cart</h2>
+            <div class="cart-items">
+                <p>Your cart is empty.</p>
+            </div>
+            <p>Total: $<span id="total">0</span></p>
+            <button id="checkout">Checkout</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Joe Projects. All rights reserved.</p>
+    </footer>
+</body>
+</html>

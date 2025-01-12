@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Lightning Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px;
+        }
+
+        nav button {
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        nav button:hover {
+            background-color: #777;
+        }
+
+        #thunder-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/4/42/Lightning_bolt.jpg') center/cover;
+            opacity: 0;
+            z-index: 9999;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div id="thunder-effect"></div>
+    <nav>
+        <button onclick="showLightningEffect('home')">Home</button>
+        <button onclick="navigate('about')">About</button>
+        <button onclick="navigate('service')">Service</button>
+        <button onclick="navigate('contact')">Contact</button>
+    </nav>
+
+    <script>
+        function showLightningEffect(button) {
+            if (button === 'home') {
+                const thunderEffect = document.getElementById('thunder-effect');
+                thunderEffect.style.opacity = 10;
+
+                setTimeout(() => {
+                    thunderEffect.style.opacity = 100;
+                }, 800); // Show effect for 800ms
+            }
+        }
+
+        function navigate(section) {
+            alert(`Navigating to ${section} section!`);
+        }
+    </script>
+</body>
+</html>

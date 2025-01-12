@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #197dcf, #78c61e, #a4762c);
+            background-size: 200% 200%;
+            animation: gradient-animation 10s infinite;
+            color: #333;
+        }
+
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Navigation Bar */
+        nav {
+            width: 100%;
+            background-color: rgba(40, 44, 52, 0.9);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            color: white;
+        }
+
+        nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #f39c12;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+            background: rgba(243, 156, 18, 0.8);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 50px 30px;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #282c34;
+        }
+
+        .services .service-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .services .service {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .services .service:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .services .service img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .services .service h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #f39c12;
+        }
+
+        .services .service p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgba(40, 44, 52, 0.9);
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">Our Services</div>
+        <ul>
+            <li><a href="home page.html">Home</a></li>
+            <li><a href="About Page.html">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="example main page.html">Back</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>What We Offer</h1>
+        <p>Explore the range of services we provide to help you achieve your goals.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <h2>Our Expertise</h2>
+        <div class="service-list">
+            <!-- Marketing -->
+            <div class="service">
+                <img src="001.jpg" alt="Marketing" height="300px">
+                <h3>Marketing</h3>
+                <p>Strategic solutions to grow your brand and reach your target audience.</p>
+            </div>
+
+            <!-- Digital Marketing -->
+            <div class="service">
+                <img src="002.jpg" alt="Digital Marketing" height="300px">
+                <h3>Digital Marketing</h3>
+                <p>Boost your online presence with innovative and effective strategies.</p>
+            </div>
+
+            <!-- Web Development -->
+            <div class="service">
+                <img src="003.jpg" alt="Web Development" height="300px">
+                <h3>Web Development</h3>
+                <p>Create stunning, functional websites tailored to your needs.</p>
+            </div>
+
+            <!-- Graphic Designing -->
+            <div class="service">
+                <img src="10.jpg" alt="Graphic Designing" height="300px">
+                <h3>Graphic Designing</h3>
+                <p>Design captivating visuals that make your brand stand out.</p>
+            </div>
+
+            <!-- Video Editing -->
+            <div class="service">
+                <img src="004.jpg" alt="Video Editing" height="300px">
+                <h3>Video Editing</h3>
+                <p>Transform raw footage into engaging, professional-quality videos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Creative Spark. All rights reserved.
+    </footer>
+</body>
+</html>

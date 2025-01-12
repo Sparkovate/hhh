@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* Header Styles */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #333;
+      color: #fff;
+      padding: 1rem 0;
+      z-index: 1000;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin: 0 1rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ff5733;
+    }
+
+    /* Section Styles */
+    .section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    #home {
+      position: relative;
+      background: linear-gradient(to bottom, #a8edea, #fed6e3);
+      text-align: center;
+    }
+
+    #home canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    #home .content {
+      position: relative;
+      z-index: 1;
+      color: white;
+    }
+
+    #about,
+    #projects,
+    #contact {
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    h1, h2 {
+      margin-bottom: 1rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .project-card {
+      background: #fff;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+
+    .project-card:hover {
+      transform: scale(1.05);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    input, textarea, button {
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    button {
+      background: #333;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #ff5733;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="section">
+    <canvas id="animationCanvas"></canvas>
+    <div class="content">
+      <h1>Welcome to My Portfolio</h1>
+      <p>Creative Designer & Developer</p>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="content">
+      <h2>About Me</h2>
+      <p>Brief description about yourself.</p>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <div class="content">
+      <h2>My Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <h3>Project 1</h3>
+          <p>Description of the project.</p>
+        </div>
+        <div class="project-card">
+          <h3>Project 2</h3>
+          <p>Description of the project.</p>
+        </div>
+        <!-- Add more project cards -->
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="content">
+      <h2>Contact Me</h2>
+      <form id="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    // Canvas Animation (Home Section)
+    const canvas = document.getElementById("animationCanvas");
+    const ctx = canvas.getContext("2d");
+
+    // Set canvas size to match the window
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let mouseX = canvas.width / 2;
+    let mouseY = canvas.height / 2;
+
+    // Update mouse position
+    window.addEventListener("mousemove", (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    // Draw character
+    function drawCharacter(x, y) {
+      // Chair
+      ctx.fillStyle = "#654321";
+      ctx.fillRect(x - 50, y + 50, 100, 10); // Seat
+      ctx.fillRect(x - 40, y + 60, 10, 50); // Left leg
+      ctx.fillRect(x + 30, y + 60, 10, 50); // Right leg
+
+      // Body
+      ctx.fillStyle = "#ffcccb";
+      ctx.fillRect(x - 20, y, 40, 50);
+
+      // Head
+      ctx.beginPath();
+      ctx.arc(x, y - 30, 20, 0, Math.PI * 2, true);
+      ctx.fillStyle = "#ffcccb";
+      ctx.fill();
+
+      // Eyes (follow mouse)
+      const eyeOffsetX = (mouseX - x) / 20;
+      const eyeOffsetY = (mouseY - (y - 30)) / 20;
+
+      ctx.fillStyle = "#000";
+      ctx.beginPath();
+      ctx.arc(x - 10 + eyeOffsetX, y - 35 + eyeOffsetY, 3, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(x + 10 + eyeOffsetX, y - 35 + eyeOffsetY, 3, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // Animation loop
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const characterX = canvas.width / 2;
+      const characterY = canvas.height / 2;
+
+      drawCharacter(characterX, characterY);
+
+      requestAnimationFrame(animate);
+    }
+
+    // Start animation
+    animate();
+  </script>
+</body>
+</html>
+
+
+<hr><hr>
+html of chat box<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Sparkreovate chatbox</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700,300">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.1.2/css/material-design-iconic-font.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400&family=Finger+Paint&display=swap">
+  </head>
+  <body>
+<body>
+  <div class="card">
+    <div id="header">
+      <h1>Chatter box!</h1>
+    </div>
+    <div id="message-section">
+      <div class="message" id="bot"><span id="bot-response">Hello.. I'm listening! Go on..</span></div>
+    </div>
+    <div id="input-section">
+      <input id="input" type="text" placeholder="Type a message" autocomplete="off" autofocus="autofocus"/>
+      <button class="send" onclick="sendMessage()">
+        <div class="circle"><i class="zmdi zmdi-mail-send"></i></div>
+      </button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Home</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f9;
+            display: flex;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Sidebar */
+        nav {
+            width: 250px;
+            background-color: #040a0b;
+            color: rgb(0, 199, 136);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            position: fixed;
+            height: 100%;
+        }
+
+        nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 20px 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: rgb(0, 199, 136);
+            font-weight: bold;
+            font-size: 18px;
+            transition: color 0.3s ease;
+            display: block;
+            padding: 12px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        nav ul li a:hover {
+            color: #c7aa19;
+            background-color: rgba(0, 199, 136, 0.1);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 250px;
+            flex: 1;
+            padding: 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            width: 100%;
+            height: 100vh;
+            background-image: url('creative-bg.jpg'); /* Replace with your image */
+            background-size: cover;
+            background-position: center;
+            color: rgb(205, 104, 16);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .hero .btn {
+            padding: 12px 30px;
+            font-size: 16px;
+            background-color: #f39c12;
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero .btn:hover {
+            background-color: #00ffa2;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 50px 30px;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #282c34;
+        }
+
+        .features .feature-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .features .feature {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .features .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(176, 78, 78, 0.2);
+        }
+
+        .features .feature img {
+            width: 100px;
+            margin-bottom: 15px;
+        }
+
+        .features .feature h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #f39c12;
+        }
+
+        .features .feature p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0ee7a9;
+            color: rgb(21, 37, 209);
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <nav>
+        <div class="logo">Creative Spark</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="About Page.html">About</a></li>
+            <li><a href="Service Page.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="example main page.html">Back</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Unleash Your Creativity</h1>
+            <p>"Unleash Your Creativity" is a concept that encourages individuals to tap into their innate creative potential and express themselves in ways that break free from conventional boundaries. Creativity is not limited to artistic pursuits but extends to problem-solving, innovation, and personal growth.</p>
+            <h2>Understanding Creativity</h2>
+            <p>Creativity is the ability to generate original ideas, solutions, and forms of expression. It is not just about being artistic but also involves looking at things from different perspectives, thinking critically, and being open to new experiences.</p>
+            <h4>Types of Creativity:</h4>
+            <p>Expressive Creativity: Through art, music, dance, writing, etc.</p>
+            <p>Innovative Creativity: Inventions, new business models, technology.</p>
+            <p>Problem-solving Creativity: Thinking outside the box to address challenges in everyday life or work.</p>
+            <button class="btn">Get Started</button>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <h2>Our Creative Offerings</h2>
+            <div class="feature-list">
+                <div class="feature">
+                    <img src="01.jpg" alt="Design Icon" height="200px" width="250px">
+                    <h3>Innovative Design</h3>
+                    <p>Experience cutting-edge designs tailored to your vision.</p>
+                </div>
+                <div class="feature">
+                    <img src="02.jpg" alt="Code Icon" height="200px" width="250px">
+                    <h3>Creative Coding</h3>
+                    <p>Develop unique digital solutions with style and functionality.</p>
+                </div>
+                <div class="feature">
+                    <img src="03.jpg" alt="Art Icon" height="200px" width="250px">
+                    <h3>Custom Artwork</h3>
+                    <p>Discover artwork that captures the essence of your ideas.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Creative Spark. All rights reserved.
+    </footer>
+
+</body>
+</html>

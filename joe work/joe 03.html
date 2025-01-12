@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Combined Interface</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      min-height: 100vh;
+      background-color: #f3f3f3;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 20px;
+      position: fixed;
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      color: rgb(87, 234, 7);
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      margin: 15px 0;
+    }
+
+    .sidebar ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: bold;
+      display: block;
+      padding: 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .sidebar ul li a:hover {
+      background-color: rgb(87, 234, 7);
+      color: black;
+    }
+
+    .main-content {
+      margin-left: 250px;
+      flex: 1;
+      padding: 20px;
+      background: url(12.jpg) no-repeat center center / cover;
+    }
+
+    .logo img {
+      width: 50%;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .content {
+      text-align: center;
+      color: white;
+      margin-top: 50px;
+    }
+
+    h1 {
+      color: rgb(47, 146, 126);
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .intro {
+      margin: 40px auto;
+      color: white;
+      max-width: 800px;
+      line-height: 1.8;
+      font-size: 1.2rem;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin: 40px 0;
+    }
+
+    .gallery img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      margin-top: 50px;
+    }
+
+    .footer p {
+      margin: 10px 0;
+    }
+
+    @media screen and (max-width: 768px) {
+      .sidebar {
+        width: 200px;
+      }
+
+      .main-content {
+        margin-left: 200px;
+      }
+
+      .gallery img {
+        width: 100%;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .sidebar {
+        width: 100%;
+        position: relative;
+        height: auto;
+      }
+
+      .main-content {
+        margin-left: 0;
+      }
+
+      .logo img {
+        width: 70%;
+      }
+    }
+
+    .circle-menu {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background-color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 50px auto;
+    }
+
+    .menu-item {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      background-color: #555;
+      border-radius: 50%;
+      transform: rotate(calc(var(--angle) + 90deg)) translate(120px) rotate(calc(-1 * (var(--angle) + 90deg)));
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .menu-item:hover {
+      background-color: #ff5722;
+      transform: rotate(calc(var(--angle) + 90deg)) translate(130px) rotate(calc(-1 * (var(--angle) + 90deg)));
+    }
+  </style>
+</head>
+<body>
+<div class="sidebar">
+  <div class="logo">
+    <img src="logo.png" alt="Logo">
+  </div>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</div>
+
+<div class="main-content">
+  <div class="content">
+    <h1>From creative spark to <br> groundbreaking innovation</h1>
+    <p class="intro">At Sparkovate, we believe in transforming ideas into reality. 
+      With a dedicated team of innovators and creators, we bring you solutions that redefine boundaries 
+      and inspire growth. Let’s embark on a journey to revolutionize the future.</p>
+  </div>
+
+  <div class="circle-menu">
+    <div class="menu-item" style="--angle: 0deg;">Home</div>
+    <div class="menu-item" style="--angle: 45deg;">Search</div>
+    <div class="menu-item" style="--angle: 90deg;">Profile</div>
+    <div class="menu-item" style="--angle: 135deg;">Settings</div>
+    <div class="menu-item" style="--angle: 180deg;">Help</div>
+    <div class="menu-item" style="--angle: 225deg;">About</div>
+    <div class="menu-item" style="--angle: 270deg;">Contact</div>
+    <div class="menu-item" style="--angle: 315deg;">Logout</div>
+  </div>
+
+  <div class="gallery">
+    <img src="inovation.jpg" alt="Innovation">
+    <img src="9.jpg" alt="Creativity">
+    <img src="Teamwork.jpg" alt="Teamwork">
+    <img src="Success.jpg" alt="Success">
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2025 Sparkovate. All Rights Reserved.</p>
+    <p>Contact us: info@sparkovate.com | +123-456-7890</p>
+  </div>
+</div>
+
+<script>
+  console.log("Circle menu loaded successfully.");
+</script>
+</body>
+</html>

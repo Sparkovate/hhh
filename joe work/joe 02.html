@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sparkreovate Chatbox</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700,300">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.1.2/css/material-design-iconic-font.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400&family=Finger+Paint&display=swap">
+  <style>
+    /* Global styles for positioning and default chatbox hiding */
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    /* Chat Button */
+    #chat-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #ff5733;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    #chat-btn:hover {
+      background-color: #e04e29;
+    }
+
+    /* Chatbox */
+    .card {
+      position: fixed;
+      bottom: 70px;  /* Position the chat box above the button */
+      right: 20px;
+      width: 300px;
+      height: 400px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      display: none;  /* Hidden by default */
+      flex-direction: column;
+      transition: all 0.3s ease-in-out;
+    }
+
+    #header {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+
+    #message-section {
+      padding: 20px;
+      flex-grow: 1;
+      overflow-y: auto;
+    }
+
+    .message {
+      padding: 10px;
+      background-color: #f4f4f4;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      max-width: 80%;
+    }
+
+    .message#bot {
+      background-color: #e0e0e0;
+      margin-left: 10%;
+    }
+
+    #input-section {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      background-color: #f4f4f4;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+
+    #input {
+      width: 80%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .send {
+      margin-left: 10px;
+      background-color: #ff5733;
+      border: none;
+      color: white;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .send i {
+      font-size: 20px;
+    }
+
+    .send:hover {
+      background-color: #e04e29;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Chat Button -->
+  <button id="chat-btn" onclick="toggleChatBox()">
+    <span>?</span> <!-- Question mark icon -->
+  </button>
+
+  <!-- Chatbox -->
+  <div class="card" id="chatbox">
+    <div id="header">
+      <h1>Chatter Box!</h1>
+    </div>
+    <div id="message-section">
+      <div class="message" id="bot"><span id="bot-response">Hello.. I'm listening! Go on..</span></div>
+    </div>
+    <div id="input-section">
+      <input id="input" type="text" placeholder="Type a message" autocomplete="off" autofocus="autofocus" />
+      <button class="send" onclick="sendMessage()">
+        <div class="circle"><i class="zmdi zmdi-mail-send"></i></div>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Function to toggle chatbox visibility
+    function toggleChatBox() {
+      const chatbox = document.getElementById("chatbox");
+      if (chatbox.style.display === "none" || chatbox.style.display === "") {
+        chatbox.style.display = "flex"; // Show chatbox
+      } else {
+        chatbox.style.display = "none"; // Hide chatbox
+      }
+    }
+
+    // Function to send a message (simple for now)
+    function sendMessage() {
+      const inputField = document.getElementById("input");
+      const messageSection = document.getElementById("message-section");
+
+      if (inputField.value.trim() !== "") {
+        const newMessage = document.createElement("div");
+        newMessage.classList.add("message");
+        newMessage.textContent = inputField.value;
+        messageSection.appendChild(newMessage);
+        inputField.value = ""; // Clear input field
+
+        // Simulate bot response (for now)
+        setTimeout(() => {
+          const botResponse = document.createElement("div");
+          botResponse.classList.add("message");
+          botResponse.id = "bot";
+          botResponse.textContent = "I'm here! What can I help with?";
+          messageSection.appendChild(botResponse);
+        }, 1000);
+      }
+    }
+  </script>
+
+</body>
+</html>
